@@ -1,0 +1,21 @@
+<p>register works!</p>
+
+<div>
+    <form>
+        <table>
+            <tr>
+                <th>Username: </th>
+                <td><input type="text" name="username" placeholder="Enter Username" [(ngModel)]="username" /></td>
+            </tr>
+            <tr>
+                <th>Password: </th>
+                <td><input type="password" name="password" placeholder="Enter Password" [(ngModel)]="password" /></td>
+            </tr>
+            <tr>
+                <th>Confirm Password: </th>
+                <td><input type="password" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword" /></td>
+            </tr>
+        </table>
+        <button type="submit" (click)="registerUserHandler()">Submit</button>
+    </form>
+</div>
