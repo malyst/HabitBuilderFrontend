@@ -6,10 +6,14 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ModalComponent,
+    IndexComponent,
     RegisterComponent,
     LoginComponent
   ],

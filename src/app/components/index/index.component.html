@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <h1>{{ title }}</h1>
+    <hr />
+  </div>
+  <div>
+    <div *ngIf="state === 'register'; else showMessage">
+      <app-register></app-register>
+    </div>
+    <ng-template #showMessage>
+      <p class="fs-4">
+        HabitBuilder promotes self-improvement, teamwork, and inclusivity by allowing people around the globe to build habits together. 
+      </p>
+      <button type="button" class="btn btn-primary" name="register" (click)="onClick($event)">Register</button>
+      <button type="button" class="btn btn-primary" name="login" (click)="onClick($event)">Login</button>
+    </ng-template>
+  </div>
+</div>

@@ -10,6 +10,8 @@ import { User } from "../../User";
 export class RegisterComponent implements OnInit {
   username: string = "";
   password: string = "";
+  first_name: string = "";
+  last_name: string = "";
   confirmPassword: string = "";
 
   constructor() { }
@@ -18,12 +20,20 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUserHandler = () => {
-    // const user = new User(
-    //   e.target.username,
-    //   e.target.password,
-    //   e.target.confirmPassword
-    // )
+    const user = new User(
+      this.username,
+      this.password,
+      this.first_name,
+      this.last_name
+    )
 
-    console.log(this.username, this.password, this.confirmPassword);
+    if (this.password === this.confirmPassword) {
+      console.log(`Sending information to server for registeration: ${user}`);
+      
+      // Send information to server and switch to user dashboard
+    } else {
+      console.log("Please enter the correct password and confirm.")
+    }
+
   }
 }
