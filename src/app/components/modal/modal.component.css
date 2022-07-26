@@ -10,8 +10,8 @@
 	box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
 
     position:fixed;
-	top: 50vh;
-	left: 10%;
+	top: 30vh;
+	right: 10%;
 	background-color: white;
 	z-index: 30;
 	animation: slide-down 300ms ease-out forwards;
