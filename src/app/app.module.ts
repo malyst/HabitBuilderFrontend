@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { IndexComponent } from './components/index/index.component';
+import { HomeHabitListComponent } from './components/home-habit-list/home-habit-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { IndexComponent } from './components/index/index.component';
     ModalComponent,
     IndexComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeHabitListComponent
   ],
   imports: [
     BrowserModule,
