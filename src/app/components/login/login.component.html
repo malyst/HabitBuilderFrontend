@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div>
+    <form>
+        <table>
+            <tr>
+                <th><label>Username: </label></th>
+                <td><input type="text" name="username" placeholder="Enter Username" [(ngModel)]="username" /></td>
+            </tr>
+            <tr>
+                <th><label>Password: </label></th>
+                <td><input type="password" name="password" placeholder="Enter Password" [(ngModel)]="password" /></td>
+            </tr>
+        </table>
+        <button class="btn btn-primary" type="submit" (click)="loginUserHandler()">Submit</button>
+        <button class="btn btn-warning" type="reset">Clear</button>
+        <button class="btn btn-danger" type="button" (click)="cancelHandler()">Cancel</button>
+    </form>
+</div>

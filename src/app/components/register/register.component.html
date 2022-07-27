@@ -1,21 +1,29 @@
-<p>register works!</p>
-
 <div>
     <form>
         <table>
             <tr>
-                <th>Username: </th>
+                <th><label>First Name: </label></th>
+                <td><input type="text" name="first_name" placeholder="Enter First Name" [(ngModel)]="first_name" /></td>
+            </tr>
+            <tr>
+                <th><label>Last Name: </label></th>
+                <td><input type="text" name="last_name" placeholder="Enter Last Name" [(ngModel)]="last_name" /></td>
+            </tr>
+            <tr>
+                <th><label>Username: </label></th>
                 <td><input type="text" name="username" placeholder="Enter Username" [(ngModel)]="username" /></td>
             </tr>
             <tr>
-                <th>Password: </th>
+                <th><label>Password: </label></th>
                 <td><input type="password" name="password" placeholder="Enter Password" [(ngModel)]="password" /></td>
             </tr>
             <tr>
-                <th>Confirm Password: </th>
+                <th><label>Confirm Password: </label></th>
                 <td><input type="password" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword" /></td>
             </tr>
         </table>
-        <button type="submit" (click)="registerUserHandler()">Submit</button>
+        <button class="btn btn-primary" type="submit" (click)="registerUserHandler()">Submit</button>
+        <button class="btn btn-warning" type="reset">Clear</button>
+        <button class="btn btn-danger" type="button" (click)="cancelHandler()">Cancel</button>
     </form>
 </div>
