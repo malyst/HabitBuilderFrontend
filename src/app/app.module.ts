@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -20,11 +21,12 @@ import { IndexComponent } from './components/index/index.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: "", component: AppComponent },
       { path: "register", component: RegisterComponent },
       { path: "login", component: LoginComponent }
-    ]) 
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
+import { User } from "../../User";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,11 +19,23 @@ export class LoginComponent implements OnInit {
   }
   
   loginUserHandler() {
+    const user = new User(
+      this.username,
+      this.password
+    )
       // send information to server
+      console.log("Sending user information to server:");
+      console.log(user);
 
-      // if user is found send to dashboard
+      // if user is found
+      if(user) {
+        console.log("User found!");
+        // send to dashboard
+      } else {
+        console.error("User not found!");
+        // if not keep user in login page
+      }
 
-      // if not keep user in login page
   }
 
   cancelHandler = () => {

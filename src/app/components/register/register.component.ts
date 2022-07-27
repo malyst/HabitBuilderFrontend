@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit {
     )
 
     if (this.password === this.confirmPassword) {
-      console.log(`Sending information to server for registeration: ${user}`);
-      
+      console.log("Sending information to server for registeration:");
+      console.log(user)
       // Send information to server and switch to user dashboard
     } else {
       console.log("Please enter the correct password and confirm.")
