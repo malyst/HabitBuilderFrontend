@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { User } from "../../User";
 
@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   first_name: string = "";
   last_name: string = "";
   confirmPassword: string = "";
+
+  @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -34,6 +36,9 @@ export class RegisterComponent implements OnInit {
     } else {
       console.log("Please enter the correct password and confirm.")
     }
+  }
 
+  cancelHandler = () => {
+    this.cancelInput.emit("cancel");
   }
 }

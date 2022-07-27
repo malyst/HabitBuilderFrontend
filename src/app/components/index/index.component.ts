@@ -17,19 +17,21 @@ export class IndexComponent implements OnInit {
 
   onClick = (e: any) => {
     if (e.target.name === "register") {
-      console.log(e.target.name)
-
       this.state = "register";
 
       this.router.navigateByUrl("/register");
     }
 
     if (e.target.name === "login") {
-      console.log(e.target.name)
-
       this.state = "login";
 
       this.router.navigateByUrl("/login");
     }
+  }
+
+  onCancel = () => {
+    this.state = "cancel";
+    
+    this.router.navigateByUrl("/");
   }
 }

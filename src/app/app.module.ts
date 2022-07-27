@@ -21,6 +21,7 @@ import { IndexComponent } from './components/index/index.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
+      { path: "", component: AppComponent },
       { path: "register", component: RegisterComponent },
       { path: "login", component: LoginComponent }
     ]) 
