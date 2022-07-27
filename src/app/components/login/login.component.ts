@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
+
+  @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -20,5 +22,9 @@ export class LoginComponent implements OnInit {
       // if user is found send to dashboard
 
       // if not keep user in login page
+  }
+
+  cancelHandler = () => {
+    this.cancelInput.emit();
   }
 }

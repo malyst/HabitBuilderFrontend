@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick = (e: any) => {
+  clickHandler = (e: any) => {
     if (e.target.name === "register") {
       this.state = "register";
 
@@ -29,9 +29,9 @@ export class IndexComponent implements OnInit {
     }
   }
 
-  onCancel = () => {
-    this.state = "cancel";
-    
-    this.router.navigateByUrl("/");
+  cancelHandler = () => {
+    this.state = "";
+
+    this.router.navigateByUrl("/")
   }
 }

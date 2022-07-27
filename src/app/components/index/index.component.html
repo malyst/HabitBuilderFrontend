@@ -6,17 +6,17 @@
   <div>
     <div [ngSwitch]="state">
       <div *ngSwitchCase="'register'">
-        <app-register (cancelInput)="onCancel()"></app-register>
+        <app-register (cancelInput)="cancelHandler()"></app-register>
       </div>
       <div *ngSwitchCase="'login'">
-        <app-login></app-login>
+        <app-login (cancelInput)="cancelHandler()"></app-login>
       </div>
       <div *ngSwitchDefault>
         <p class="fs-4">
           HabitBuilder promotes self-improvement, teamwork, and inclusivity by allowing people around the globe to build habits together. 
         </p>
-        <button type="button" class="btn btn-primary" name="register" (click)="onClick($event)">Register</button>
-        <button type="button" class="btn btn-primary" name="login" (click)="onClick($event)">Login</button>
+        <button type="button" class="btn btn-primary" name="register" (click)="clickHandler($event)">Register</button>
+        <button type="button" class="btn btn-primary" name="login" (click)="clickHandler($event)">Login</button>
       </div>
     </div>
   </div>

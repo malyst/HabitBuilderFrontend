@@ -39,6 +39,6 @@ export class RegisterComponent implements OnInit {
   }
 
   cancelHandler = () => {
-    this.cancelInput.emit("cancel");
+    this.cancelInput.emit();
   }
 }
