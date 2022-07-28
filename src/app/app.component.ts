@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { APIConnecterService } from "./apiconnecter.service"
+import { APIConnecterService } from "./services/apiconnecter.service"
 
 @Component({
   selector: 'app-root',
