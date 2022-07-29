@@ -7,9 +7,14 @@ import { APIConnecterService } from "./services/apiconnecter.service"
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private data: APIConnecterService) {
-    // this.data.getData().subscribe(data => {
-    //   console.warn(data);
-    // })
+  habitsFromParent: any;
+
+  constructor(private connector: APIConnecterService) {
+    this.connector.getHabits().subscribe(data => {
+      console.warn(data);
+      
+      this.habitsFromParent = data;
+    })
+
   }
 }

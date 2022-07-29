@@ -7,9 +7,13 @@
     position: absolute;
     top: 10%;
     width: 50%;
-    
 }
 
 img {
     width: 40%;
+}
+
+app-home-habit-list {
+    text-align: center;
+    
 }

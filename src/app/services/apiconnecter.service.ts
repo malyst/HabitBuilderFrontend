@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { User } from "../models/User";
+import { Habit } from "../models/Habit";
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,10 +13,14 @@ export class APIConnecterService {
   constructor(private http: HttpClient) {}
   
   public createUser(user: User) : Observable<User> {
-    return this.http.post<User>(`${environment.apiUrl}/User/Register`, user);
+    return this.http.post<User>(`${environment.userAPIUrl}/User/Register`, user);
   }
 
   public loginUser(user: User) : Observable<User> {
-    return this.http.post<User>(`${environment.apiUrl}/User/Login`, user);
+    return this.http.post<User>(`${environment.userAPIUrl}/User/Login`, user);
+  }
+
+  public getHabits() : Observable<Habit> {
+    return this.http.get<Habit>(`${environment.habitAPIUrl}/Habits`);
   }
 }
