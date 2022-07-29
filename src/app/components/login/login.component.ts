@@ -19,20 +19,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  loginUserHandler() {
+  async loginUserHandler() {
     const user = new User(
       this.email,
       this.password
     )
       // send information to server
-      console.log("Sending user information to server:");
-      console.log(user);
-
-      const isFound = this.connector.loginUser(user).subscribe(result => console.log(result))
+      const isFound = await this.connector.loginUser(user).subscribe(result => console.log(result))
 
       // if user is found
       if(isFound) {
-        console.log("User found!");
+        console.log(isFound);
         // send to dashboard
       } else {
         console.error("User not found!");
