@@ -8,7 +8,7 @@ import { User } from "../../models/User";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string = "";
+  email: string = "";
   password: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   
   loginUserHandler() {
     const user = new User(
-      this.username,
+      this.email,
       this.password
     )
       // send information to server

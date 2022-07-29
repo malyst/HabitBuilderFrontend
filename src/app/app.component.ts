@@ -8,8 +8,8 @@ import { APIConnecterService } from "./services/apiconnecter.service"
 })
 export class AppComponent {
   constructor(private data: APIConnecterService) {
-    this.data.getData().subscribe(data => {
-      console.warn(data);
-    })
+    // this.data.getData().subscribe(data => {
+    //   console.warn(data);
+    // })
   }
 }

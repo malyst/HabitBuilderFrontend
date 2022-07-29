@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { User } from "../../models/User";
+import { APIConnecterService } from "../../services/apiconnecter.service"
 
 @Component({
   selector: 'app-register',
@@ -10,29 +11,31 @@ import { User } from "../../models/User";
 export class RegisterComponent implements OnInit {
   username: string = "";
   password: string = "";
-  first_name: string = "";
-  last_name: string = "";
+  firstname: string = "";
+  lastname: string = "";
+  email: string = "";
   confirmPassword: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private connector: APIConnecterService) { }
 
   ngOnInit(): void {
   }
 
   registerUserHandler = () => {
     const user = new User(
-      this.username,
+      this.email,
       this.password,
-      this.first_name,
-      this.last_name
+      this.firstname,
+      this.lastname,
     )
 
     if (this.password === this.confirmPassword) {
-      console.log("Sending information to server for registeration:");
-      console.log(user)
+      console.log(user);
+
       // Send information to server and switch to user dashboard
+      this.connector.createUser(user).subscribe(result => console.log(result));
     } else {
       console.log("Please enter the correct password and confirm.")
     }
