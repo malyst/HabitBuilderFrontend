@@ -14,4 +14,8 @@ export class APIConnecterService {
   public createUser(user: User) : Observable<User> {
     return this.http.post<User>(`${environment.apiUrl}/User/Register`, user);
   }
+
+  public loginUser(user: User) : Observable<User> {
+    return this.http.post<User>(`${environment.apiUrl}/User/Login`, user);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { User } from "../../models/User";
+import { APIConnecterService } from "../../services/apiconnecter.service"
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private connector: APIConnecterService) { }
 
   ngOnInit(): void {
   }
@@ -27,8 +28,10 @@ export class LoginComponent implements OnInit {
       console.log("Sending user information to server:");
       console.log(user);
 
+      const isFound = this.connector.loginUser(user).subscribe(result => console.log(result))
+
       // if user is found
-      if(user) {
+      if(isFound) {
         console.log("User found!");
         // send to dashboard
       } else {
