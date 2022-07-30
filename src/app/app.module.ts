@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { IndexComponent } from './components/index/index.component';
 import { HomeHabitListComponent } from './components/home-habit-list/home-habit-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeHabitListComponent } from './components/home-habit-list/home-habit-
     IndexComponent,
     RegisterComponent,
     LoginComponent,
-    HomeHabitListComponent
+    HomeHabitListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { HomeHabitListComponent } from './components/home-habit-list/home-habit-
     RouterModule.forRoot([
       { path: "", component: AppComponent },
       { path: "register", component: RegisterComponent },
-      { path: "login", component: LoginComponent }
+      { path: "login", component: LoginComponent },
+      { path: "dashboard", component: DashboardComponent}
     ])
   ],
   providers: [],
