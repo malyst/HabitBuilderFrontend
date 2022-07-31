@@ -14,7 +14,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { APIConnecterService } from './services/apiconnecter.service';
 import { AuthGuard } from './services/auth.guard';
-import { TokenInterceptorService } from "./services/token-interceptor.service"
+import { TokenInterceptorService } from "./services/token-interceptor.service";
+import { NavbarComponent } from './components/dashboard/navbar/navbar.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TokenInterceptorService } from "./services/token-interceptor.service"
     LoginComponent,
     HomeHabitListComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

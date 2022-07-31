@@ -1,0 +1,11 @@
+nav {
+    background-color: #b6dbf5;
+}
+
+.navbar-brand {
+    padding: 0px 15px;
+}
+
+#logoutBtn {
+    padding: 0px 0px 0px 95%;
+}
