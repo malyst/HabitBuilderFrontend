@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from "../../models/User";
 import { APIConnecterService } from "../../services/apiconnecter.service"
@@ -18,7 +19,9 @@ export class RegisterComponent implements OnInit {
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
-  constructor(private connector: APIConnecterService) { }
+  constructor(
+    private connector: APIConnecterService, 
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,7 +38,21 @@ export class RegisterComponent implements OnInit {
       console.log(user);
 
       // Send information to server and switch to user dashboard
-      this.connector.createUser(user).subscribe(result => console.log(result));
+      this.connector.createUser(user).subscribe({
+        next: (data) => {
+          console.log(data);
+
+          localStorage.setItem("token", data.token)
+          
+
+          // send to dashboard
+          this.router.navigateByUrl("/dashboard");
+        },
+        error: (e) => console.error(e),
+        complete: () => {
+          console.log("Done");
+        }
+      });
     } else {
       console.log("Please enter the correct password and confirm.")
     }

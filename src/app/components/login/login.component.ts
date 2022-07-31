@@ -2,8 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { User } from "../../models/User";
-import { APIConnecterService } from "../../services/apiconnecter.service"
-import { AppComponent } from "../../app.component";
+import { APIConnecterService } from "../../services/apiconnecter.service";
 
 @Component({
   selector: 'app-login',
@@ -15,9 +14,10 @@ export class LoginComponent implements OnInit {
   password: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
-  @Output() loggedIn: EventEmitter<any> = new EventEmitter();
 
-  constructor(private connector: APIConnecterService, private router: Router, private app: AppComponent) { }
+  constructor(
+    private connector: APIConnecterService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     localStorage.clear();
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
           console.log(data);
 
           localStorage.setItem("token", data.token)
-          this.loggedIn.emit({ loggedIn: true });
 
           // send to dashboard
           this.router.navigateByUrl("/dashboard");
