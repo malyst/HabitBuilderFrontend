@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   password: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
+  @Output() loggedIn: EventEmitter<any> = new EventEmitter();
 
   constructor(private connector: APIConnecterService, private router: Router, private app: AppComponent) { }
 
@@ -30,11 +31,11 @@ export class LoginComponent implements OnInit {
       // send information to server
       await this.connector.loginUser(user).subscribe({
         next: (data) => {
-          
-          // if user is found
           console.log(data);
 
           localStorage.setItem("token", data.token)
+          this.loggedIn.emit({ loggedIn: true });
+
           // send to dashboard
           this.router.navigateByUrl("/dashboard");
         },

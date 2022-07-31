@@ -1,10 +1,14 @@
-<div class="container">
-    <img src="../assets/images/habit.png" alt="Grow a Habit" />
-    <div class="col">
-        <p class="intro-text fs-4">
-            HabitBuilder promotes self-improvement, teamwork, and inclusivity by allowing people around the globe to build habits together. 
-        </p>
+<div>
+    <div class="container">
+        <img src="../assets/images/habit.png" alt="Grow a Habit" />
+        <div class="col">
+            <p class="intro-text fs-4">
+                HabitBuilder promotes self-improvement, teamwork, and inclusivity by allowing people around the globe to build habits together. 
+            </p>
+        </div>
     </div>
-</div>
 
-<app-modal></app-modal>
+    <app-modal></app-modal>
+
+    <app-home-habit-list [habits]="habitsFromParent"></app-home-habit-list>
+</div>
