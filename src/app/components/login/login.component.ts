@@ -1,7 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { User } from "../../models/User";
 import { APIConnecterService } from "../../services/apiconnecter.service"
+import { AppComponent } from "../../app.component";
 
 @Component({
   selector: 'app-login',
@@ -14,9 +16,10 @@ export class LoginComponent implements OnInit {
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
-  constructor(private connector: APIConnecterService) { }
+  constructor(private connector: APIConnecterService, private router: Router, private app: AppComponent) { }
 
   ngOnInit(): void {
+    localStorage.clear();
   }
   
   async loginUserHandler() {
@@ -25,17 +28,21 @@ export class LoginComponent implements OnInit {
       this.password
     )
       // send information to server
-      const isFound = await this.connector.loginUser(user).subscribe(result => console.log(result))
+      await this.connector.loginUser(user).subscribe({
+        next: (data) => {
+          
+          // if user is found
+          console.log(data);
 
-      // if user is found
-      if(isFound) {
-        console.log(isFound);
-        // send to dashboard
-      } else {
-        console.error("User not found!");
-        // if not keep user in login page
-      }
-
+          localStorage.setItem("token", data.token)
+          // send to dashboard
+          this.router.navigateByUrl("/dashboard");
+        },
+        error: (e) => console.error(e),
+        complete: () => {
+          console.log("Done");
+        }
+      })
   }
 
   cancelHandler = () => {
