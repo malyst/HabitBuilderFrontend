@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { APIConnecterService } from "./apiconnecter.service";
+
+@Injectable()
+
 export class AuthGuard implements CanActivate {
-  constructor() {}
+  constructor(
+    private connector: APIConnecterService,
+    private router: Router) { }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+  canActivate(): boolean {
+    if (this.connector.loggedIn()) {
+      return true;
+    } else {
+      this.router.navigateByUrl("")
+
+      return false;
+    }
   }
 }

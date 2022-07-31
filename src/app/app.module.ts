@@ -12,6 +12,8 @@ import { IndexComponent } from './components/index/index.component';
 import { HomeHabitListComponent } from './components/home-habit-list/home-habit-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { APIConnecterService } from './services/apiconnecter.service';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [APIConnecterService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
