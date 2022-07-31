@@ -18,14 +18,10 @@ export class IndexComponent implements OnInit {
   clickHandler = (e: any) => {
     if (e.target.name === "register") {
       this.state = "register";
-
-      this.router.navigateByUrl("/register");
     }
 
     if (e.target.name === "login") {
       this.state = "login";
-
-      this.router.navigateByUrl("/login");
     }
   }
 

@@ -1,0 +1,13 @@
+<p class="fs-4">
+    Example Habits:
+</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr *ngFor="let habit of habits">
+            <td>{{ habit.name }}</td>
+            <td>{{ habit.description }}</td>
+        </tr>
+    </table>

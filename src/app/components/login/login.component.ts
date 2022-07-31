@@ -1,4 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from "@angular/router";
+
+import { User } from "../../models/User";
+import { APIConnecterService } from "../../services/apiconnecter.service";
 
 @Component({
   selector: 'app-login',
@@ -6,22 +10,39 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string = "";
+  email: string = "";
   password: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private connector: APIConnecterService, 
+    private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.clear();
   }
   
-  loginUserHandler() {
+  async loginUserHandler() {
+    const user = new User(
+      this.email,
+      this.password
+    )
       // send information to server
+      await this.connector.loginUser(user).subscribe({
+        next: (data) => {
+          console.log(data);
 
-      // if user is found send to dashboard
+          localStorage.setItem("token", data.token)
 
-      // if not keep user in login page
+          // send to dashboard
+          this.router.navigateByUrl("/dashboard");
+        },
+        error: (e) => console.error(e),
+        complete: () => {
+          console.log("Done");
+        }
+      })
   }
 
   cancelHandler = () => {

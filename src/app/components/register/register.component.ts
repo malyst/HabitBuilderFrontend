@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { User } from "../../User";
+import { User } from "../../models/User";
+import { APIConnecterService } from "../../services/apiconnecter.service"
 
 @Component({
   selector: 'app-register',
@@ -10,29 +12,47 @@ import { User } from "../../User";
 export class RegisterComponent implements OnInit {
   username: string = "";
   password: string = "";
-  first_name: string = "";
-  last_name: string = "";
+  firstname: string = "";
+  lastname: string = "";
+  email: string = "";
   confirmPassword: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private connector: APIConnecterService, 
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
   registerUserHandler = () => {
     const user = new User(
-      this.username,
+      this.email,
       this.password,
-      this.first_name,
-      this.last_name
+      this.firstname,
+      this.lastname,
     )
 
     if (this.password === this.confirmPassword) {
-      console.log(`Sending information to server for registeration: ${user}`);
-      
+      console.log(user);
+
       // Send information to server and switch to user dashboard
+      this.connector.createUser(user).subscribe({
+        next: (data) => {
+          console.log(data);
+
+          localStorage.setItem("token", data.token)
+          
+
+          // send to dashboard
+          this.router.navigateByUrl("/dashboard");
+        },
+        error: (e) => console.error(e),
+        complete: () => {
+          console.log("Done");
+        }
+      });
     } else {
       console.log("Please enter the correct password and confirm.")
     }
