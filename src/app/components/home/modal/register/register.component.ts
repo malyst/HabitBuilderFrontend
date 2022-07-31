@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { User } from "../../models/User";
-import { APIConnecterService } from "../../services/apiconnecter.service"
+import { User } from "../../../../models/User";
+import { APIConnecterService } from "../../../../services/apiconnecter.service"
 
 @Component({
   selector: 'app-register',
