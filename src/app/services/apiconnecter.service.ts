@@ -24,6 +24,10 @@ export class APIConnecterService {
     return !!localStorage.getItem("token");
   }
 
+  getToken() {
+    return localStorage.getItem("token");
+  }
+
   public getHabits() : Observable<Habit> {
     return this.http.get<Habit>(`${environment.habitAPIUrl}/Habits`);
   }
