@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
       // send information to server
       await this.connector.loginUser(user).subscribe({
         next: (data) => {
-          console.log(data);
-
           localStorage.setItem("token", data.token)
 
           // send to dashboard

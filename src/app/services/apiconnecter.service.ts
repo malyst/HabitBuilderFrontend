@@ -24,7 +24,7 @@ export class APIConnecterService {
     return !!localStorage.getItem("token");
   }
 
-  getToken() {
+  public getToken() {
     return localStorage.getItem("token");
   }
 
