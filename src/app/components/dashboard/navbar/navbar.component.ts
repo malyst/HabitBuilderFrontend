@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Component({
@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @Output() formEventEmitter = new EventEmitter();
 
   constructor(private router: Router) { }
 
@@ -17,6 +18,10 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
 
     this.router.navigateByUrl("");
+  }
+
+  formHandler = () => {
+    this.formEventEmitter.emit(true);
   }
 
 }

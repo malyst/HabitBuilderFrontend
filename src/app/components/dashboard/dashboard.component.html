@@ -1,3 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar (formEventEmitter)="formIsVisible()"></app-navbar>
 
 <app-habit-list [habits]="habitsFromParent"></app-habit-list>
+<div >
+    <app-habit-form *ngIf="isVisible"></app-habit-form>
+</div>

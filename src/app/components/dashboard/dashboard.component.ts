@@ -8,6 +8,7 @@ import { APIConnecterService } from "../../services/apiconnecter.service"
 })
 export class DashboardComponent implements OnInit {
   habitsFromParent: any;
+  isVisible: boolean = false;
 
   constructor(private connector: APIConnecterService) {}
 
@@ -17,6 +18,10 @@ export class DashboardComponent implements OnInit {
 			
 			this.habitsFromParent = data;
 		})
+  }
+
+  formIsVisible = () => {
+    this.isVisible = !this.isVisible;
   }
 
 }

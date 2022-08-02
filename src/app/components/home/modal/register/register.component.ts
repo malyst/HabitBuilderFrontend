@@ -10,11 +10,10 @@ import { APIConnecterService } from "../../../../services/apiconnecter.service"
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  username: string = "";
-  password: string = "";
   firstname: string = "";
   lastname: string = "";
   email: string = "";
+  password: string = "";
   confirmPassword: string = "";
 
   @Output() cancelInput: EventEmitter<any> = new EventEmitter();
@@ -44,7 +43,6 @@ export class RegisterComponent implements OnInit {
 
           localStorage.setItem("token", data.token)
           
-
           // send to dashboard
           this.router.navigateByUrl("/dashboard");
         },

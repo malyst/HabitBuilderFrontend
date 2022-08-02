@@ -1,0 +1,22 @@
+<p>habit-form works!</p>
+
+<div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <table>
+            <tr>
+                <th><label>Habit Name: </label></th>
+                <td>
+                    <input type="text" name="Name" placeholder="Enter Habit Name" ngModel #Name="ngModel" />
+                </td>
+            </tr>
+            <tr>
+                <th><label>Habit Description: </label></th>
+                <td>
+                    <textarea type="text" name="Description" placeholder="Enter Habit Description" ngModel #Description="ngModel"></textarea>
+                </td>
+            </tr>
+            <button class="btn btn-primary" type="submit">Submit Habit</button>
+            <button class="btn btn-danger">Cancel</button>
+        </table>
+    </form>
+</div>

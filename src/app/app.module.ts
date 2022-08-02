@@ -15,7 +15,8 @@ import { APIConnecterService } from './services/apiconnecter.service';
 import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
-import { HabitListComponent } from './components/dashboard/habit-list/habit-list.component'
+import { HabitListComponent } from './components/dashboard/habit-list/habit-list.component';
+import { HabitFormComponent } from './components/dashboard/habit-form/habit-form.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HabitListComponent } from './components/dashboard/habit-list/habit-list
     DashboardComponent,
     HomeComponent,
     NavbarComponent,
-    HabitListComponent
+    HabitListComponent,
+    HabitFormComponent
   ],
   imports: [
     BrowserModule,
