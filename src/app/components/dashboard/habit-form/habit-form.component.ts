@@ -10,6 +10,8 @@ import { Habit } from "../../../models/Habit";
   styleUrls: ['./habit-form.component.css']
 })
 export class HabitFormComponent implements OnInit {
+  isHidden: boolean = true;
+  
   constructor(private connector: APIConnecterService) { }
 
   ngOnInit(): void {
@@ -34,5 +36,7 @@ export class HabitFormComponent implements OnInit {
     });
   }
   
-
+  hideForm = () => {
+    this.isHidden = !this.isHidden;
+  }
 }

@@ -1,5 +1,5 @@
 <div>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <form [ngClass]="!isHidden ? 'cancel' : 'form'" #form="ngForm">
         <table>
             <tr>
                 <th><label>Habit Name: </label></th>
@@ -13,8 +13,8 @@
                     <textarea type="text" name="Description" placeholder="Enter Habit Description" ngModel #Description="ngModel"></textarea>
                 </td>
             </tr>
-            <button class="btn btn-primary" type="submit">Submit Habit</button>
-            <button class="btn btn-danger">Cancel</button>
+            <button class="btn btn-primary" (click)="onSubmit(form)">Submit Habit</button>
+            <button class="btn btn-danger" (click)="hideForm()">Cancel</button>
         </table>
     </form>
 </div>
