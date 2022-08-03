@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="/dashboard">HabitBuilder</a>
-    
-  
+      
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="newHabitBtn">
+            <button class="btn btn-outline-primary my-2 my-2m-0"(click)="formHandler()">New Habit</button>
+        </div>
         <div id="logoutBtn">
             <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logoutHandler()">Logout</button>
         </div>

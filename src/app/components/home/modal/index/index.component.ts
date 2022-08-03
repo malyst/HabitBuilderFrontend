@@ -27,7 +27,5 @@ export class IndexComponent implements OnInit {
 
   cancelHandler = () => {
     this.state = "";
-
-    this.router.navigateByUrl("/")
   }
 }

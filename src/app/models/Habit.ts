@@ -5,7 +5,7 @@ export class Habit {
         public duration: number = 0,
         public count: number = 0,
         public dailyCompletion: number = 0,
-        public yearlyCompletion: number = 0,
-        public habitRewards: any
+        public monthlyCompletion: number = 0,
+        public yearlyCompletion: number = 0
         ) {}
 }

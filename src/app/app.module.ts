@@ -9,13 +9,14 @@ import { RegisterComponent } from './components/home/modal/register/register.com
 import { LoginComponent } from './components/home/modal/login/login.component';
 import { ModalComponent } from './components/home/modal/modal.component';
 import { IndexComponent } from './components/home/modal/index/index.component';
-import { HomeHabitListComponent } from './components/home/home-habit-list/home-habit-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { APIConnecterService } from './services/apiconnecter.service';
 import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptorService } from "./services/token-interceptor.service";
-import { NavbarComponent } from './components/dashboard/navbar/navbar.component'
+import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
+import { HabitListComponent } from './components/dashboard/habit-list/habit-list.component';
+import { HabitFormComponent } from './components/dashboard/habit-form/habit-form.component'
 
 @NgModule({
   declarations: [
@@ -24,10 +25,11 @@ import { NavbarComponent } from './components/dashboard/navbar/navbar.component'
     IndexComponent,
     RegisterComponent,
     LoginComponent,
-    HomeHabitListComponent,
     DashboardComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    HabitListComponent,
+    HabitFormComponent
   ],
   imports: [
     BrowserModule,

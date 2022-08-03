@@ -1,0 +1,20 @@
+<div>
+    <form [ngClass]="!isHidden ? 'cancel' : 'form'" #form="ngForm">
+        <table>
+            <tr>
+                <th><label>Habit Name: </label></th>
+                <td>
+                    <input type="text" name="Name" placeholder="Enter Habit Name" ngModel #Name="ngModel" />
+                </td>
+            </tr>
+            <tr>
+                <th><label>Habit Description: </label></th>
+                <td>
+                    <textarea type="text" name="Description" placeholder="Enter Habit Description" ngModel #Description="ngModel"></textarea>
+                </td>
+            </tr>
+            <button class="btn btn-primary" (click)="onSubmit(form)">Submit Habit</button>
+            <button class="btn btn-danger" (click)="hideForm()">Cancel</button>
+        </table>
+    </form>
+</div>

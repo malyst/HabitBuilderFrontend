@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { APIConnecterService } from "../../services/apiconnecter.service";
 
 @Component({
   selector: 'app-home',
@@ -8,19 +7,9 @@ import { APIConnecterService } from "../../services/apiconnecter.service";
 })
 export class HomeComponent implements OnInit {
 	habitsFromParent: any;
-	isLoggedIn: boolean = false;
 	
-	constructor(private connector: APIConnecterService) { }
+	constructor() { }
 	
 	ngOnInit(): void {
-		this.connector.getHabits().subscribe(data => {
-			console.warn(data);
-			
-			this.habitsFromParent = data;
-		})
-	}
-
-	loggedInHandler(e: any): void {
-		this.isLoggedIn = e.loggedIn
 	}
 }

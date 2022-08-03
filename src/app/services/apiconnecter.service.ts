@@ -24,11 +24,15 @@ export class APIConnecterService {
     return !!localStorage.getItem("token");
   }
 
-  getToken() {
+  public getToken() {
     return localStorage.getItem("token");
   }
 
   public getHabits() : Observable<Habit> {
     return this.http.get<Habit>(`${environment.habitAPIUrl}/Habits`);
+  }
+
+  public createHabit(habit: Habit) : Observable<Habit> {
+    return this.http.post<Habit>(`${environment.habitAPIUrl}/Habits`, habit)
   }
 }
