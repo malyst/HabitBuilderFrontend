@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="!isHidden ? '' : 'backdrop'">
     <form [ngClass]="!isHidden ? 'cancel' : 'form'" #form="ngForm">
         <table>
             <tr>

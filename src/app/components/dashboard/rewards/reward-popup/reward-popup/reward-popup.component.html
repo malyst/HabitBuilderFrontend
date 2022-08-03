@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reward</h5>
+        <div>
+          <div class="fs-4"></div>
+          <form>
+            <table>
+              <tr>
+                <th><label>Reward Name: </label></th>
+                <td><input type="text" name="name" [(ngModel)]="name" /></td>
+              </tr>
+              <tr>
+                <th><label>Reward Description: </label></th>
+                <td>
+                  <input
+                    type="text"
+                    name="description"
+                    [(ngModel)]="description"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th><label>Reward Cost: </label></th>
+                <td><input type="text" name="cost" [(ngModel)]="cost" /></td>
+              </tr>
+            </table>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="createUserReward()"
+            >
+              Submit
+            </button>
+            <button class="btn btn-warning" type="reset">Clear</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

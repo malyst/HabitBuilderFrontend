@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { HabitListComponent } from './components/dashboard/habit-list/habit-list.component';
 import { HabitFormComponent } from './components/dashboard/habit-form/habit-form.component'
+import { RewardsComponent } from './components/dashboard/rewards/rewards/rewards.component';
+import { RewardPopupComponent } from './components/dashboard/rewards/reward-popup/reward-popup/reward-popup.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HabitFormComponent } from './components/dashboard/habit-form/habit-form
     HomeComponent,
     NavbarComponent,
     HabitListComponent,
-    HabitFormComponent
+    HabitFormComponent,
+    RewardsComponent,
+    RewardPopupComponent
   ],
   imports: [
     BrowserModule,
