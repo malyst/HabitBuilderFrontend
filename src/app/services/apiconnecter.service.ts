@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { User } from "../models/User";
 import { Habit } from "../models/Habit";
+import { Reward } from "../models/Reward"
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -34,5 +35,9 @@ export class APIConnecterService {
 
   public createHabit(habit: Habit) : Observable<Habit> {
     return this.http.post<Habit>(`${environment.habitAPIUrl}/Habits`, habit)
+  }
+
+  public createReward(reward: Reward): Observable<Reward> {
+    return this.http.post<Reward>(`${environment.habitAPIUrl}/Rewards`, reward);
   }
 }
