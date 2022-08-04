@@ -1,0 +1,23 @@
+.all-habit-display{
+    display: block;
+    color: blue;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.24), rgba(255, 255, 255, 0.26),rgba(0, 0, 0, 0.24),rgba(0, 128, 0, 0.253), rgba(0, 0, 0, 0.24), rgba(255, 255, 255, 0.233), rgba(0, 0, 0, 0.24));
+    margin: auto;
+    padding: 50px;
+}
+.all-habit-display table{
+    background-color: white;
+    margin: auto;
+    box-shadow:yellow 5px 10px;
+
+}
+.all-habit-display th{
+    font-size: 20px;
+    color: green;
+    padding: 20px;
+    border: 1px solid black;
+}
+.all-habit-display td{
+    text-align: center;
+    border: 1px solid black;    
+}

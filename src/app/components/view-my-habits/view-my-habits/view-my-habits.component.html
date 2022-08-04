@@ -1,0 +1,9 @@
+<section class="view-my-habits">
+    <button (click) = "clickHandler()">Get Habit Ids</button>
+
+</section>
+<div>
+    <ul>
+        <li *ngFor="let habit of userHabits">{{habit.name}}</li>
+    </ul>
+</div>

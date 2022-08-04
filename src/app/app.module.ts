@@ -19,6 +19,10 @@ import { HabitListComponent } from './components/dashboard/habit-list/habit-list
 import { HabitFormComponent } from './components/dashboard/habit-form/habit-form.component'
 import { RewardsComponent } from './components/dashboard/rewards/rewards/rewards.component';
 import { RewardPopupComponent } from './components/dashboard/rewards/reward-popup/reward-popup/reward-popup.component';
+import { CreateHabitComponent } from './components/create-habit/create-habit/create-habit.component';
+import { BrowseHabitsComponent } from './components/browse-habits/browse-habits/browse-habits.component';
+import { HabitSubscribeComponent } from './components/habit-subscribe/habit-subscribe/habit-subscribe.component';
+import { ViewMyHabitsComponent } from './components/view-my-habits/view-my-habits/view-my-habits.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { RewardPopupComponent } from './components/dashboard/rewards/reward-popu
     HabitListComponent,
     HabitFormComponent,
     RewardsComponent,
-    RewardPopupComponent
+    RewardPopupComponent,
+    CreateHabitComponent,
+    BrowseHabitsComponent,
+    HabitSubscribeComponent,
+    ViewMyHabitsComponent,
   ],
   imports: [
     BrowserModule,

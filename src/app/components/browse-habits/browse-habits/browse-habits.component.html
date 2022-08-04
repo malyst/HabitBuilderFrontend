@@ -1,0 +1,14 @@
+<section class="all-habit-display">
+    <table>
+        <tr>
+            <th>Habit Id</th>
+            <th>Habit Name</th>
+            <th>Habit Description</th>
+        </tr>
+        <tr *ngFor="let habit of habits">
+            <td>{{habit.habitId}}</td>
+            <td>{{habit.name}}</td>
+            <td>{{habit.description}}</td>
+        </tr>
+    </table> 
+</section>

@@ -1,0 +1,9 @@
+<section class="habit-subscribe">
+    <form #subscribeForm="ngForm" (ngSubmit) = "subscribe()" autocomplete="off">
+        <h2>Subscribe</h2>
+        <hr>
+        <input type="text" name="habitId"
+            [(ngModel)]="habitId" placeholder="Habit Id">
+        <button type="submit">Submit</button>
+    </form>
+</section>

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { User } from "../models/User";
 import { Habit } from "../models/Habit";
+import { UserHabit } from "../models/UserHabit"
 import { Reward } from "../models/Reward"
 import { Observable } from 'rxjs';
 
@@ -21,6 +22,10 @@ export class APIConnecterService {
     return this.http.post<User>(`${environment.userAPIUrl}/User/Login`, user);
   }
 
+  public getProfile() : Observable<User>{
+    return this.http.get<User>(`${environment.userAPIUrl}/User/Profile`);
+  }
+
   public loggedIn() {
     return !!localStorage.getItem("token");
   }
@@ -31,6 +36,16 @@ export class APIConnecterService {
 
   public getHabits() : Observable<Habit> {
     return this.http.get<Habit>(`${environment.habitAPIUrl}/Habits`);
+  }
+
+  public getUserHabits(userId : string)  : Observable<UserHabit> {
+    var params = new HttpParams().append('param1', userId);
+    console.log(params);
+    return this.http.get<UserHabit>(`${environment.userAPIUrl}/UserHabits`, {params});
+  }
+
+  public associateUserHabit(body : any) {
+    return this.http.post(`${environment.userAPIUrl}/UserHabits`, body)
   }
 
   public createHabit(habit: Habit) : Observable<Habit> {
