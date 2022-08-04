@@ -1,0 +1,11 @@
+<section class="create-habit">
+    <form #createHabitForm="ngForm" (ngSubmit)="createHabit()" autocomplete="off">
+        <h2>Create Habit</h2>
+        <input type="text" name="name"
+            [(ngModel)]="model.name" placeholder="Name">
+        <input type="text" name="description"
+            [(ngModel)]="model.description" placeholder="Description">
+        <button type="submit">Submit</button>
+
+    </form>
+</section>
