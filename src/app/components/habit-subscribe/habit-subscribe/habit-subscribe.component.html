@@ -1,9 +1,30 @@
 <section class="habit-subscribe">
-    <form #subscribeForm="ngForm" (ngSubmit) = "subscribe()" autocomplete="off">
-        <h2>Subscribe</h2>
-        <hr>
-        <input type="text" name="habitId"
-            [(ngModel)]="habitId" placeholder="Habit Id">
-        <button type="submit">Submit</button>
-    </form>
+  <form #subscribeForm="ngForm" (ngSubmit)="subscribe()" autocomplete="off">
+    <h4>Subscribe</h4>
+
+    <input
+      type="text"
+      name="habitId"
+      placeholder="Habit Id"
+      [(ngModel)]="habitId"
+    />
+    <div
+      *ngIf="alert"
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Congrats!</strong> You've sucessfully subscribed to a habit click
+      <a href="#" class="alert-link">here</a> to view
+      <button
+        (click)="closeAlert()"
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <button class="subscribeHabit" type="submit">Submit</button>
+  </form>
 </section>
