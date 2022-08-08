@@ -14,16 +14,8 @@
       role="alert"
     >
       <strong>Congrats!</strong> You've sucessfully subscribed to a habit click
-      <a href="#" class="alert-link">here</a> to view
-      <button
-        (click)="closeAlert()"
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+      here to return to home<button (click)="returnToDash()">Return</button>
+      
     </div>
     <button class="subscribeHabit" type="submit">Submit</button>
   </form>

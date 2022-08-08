@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Router } from "@angular/router";
 import { Component, OnInit } from '@angular/core';
-import { APIConnecterService } from "../../services/apiconnecter.service"
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,16 +9,30 @@ import { APIConnecterService } from "../../services/apiconnecter.service"
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  habitsFromParent: any;
-  isVisible: boolean = false;
+  constructor(private router: Router, private http: HttpClient) {}
 
-  constructor(private connector: APIConnecterService, private router: Router, private http: HttpClient) {}
+  browseHabits : boolean = false;
+  appCreatehabit : boolean  = false;
+  viewMyHabits : boolean  = false;
+  reward : boolean = false;
 
   ngOnInit(): void {
+    
   }
 
-  formIsVisible = () => {
-    this.isVisible = !this.isVisible;
+  showViewMyHabits(){
+    this.viewMyHabits = !this.viewMyHabits;
   }
+  showCreateHabit(){
+    this.appCreatehabit = !this.appCreatehabit;
+  }
+  showBrowseHabits(){
+    this.router.navigateByUrl("/browsehabits");
+  }
+  showRewards(){
+    this.reward = !this.reward;
+  }
+  
+  
 
 }

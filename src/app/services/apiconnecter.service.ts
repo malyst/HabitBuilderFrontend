@@ -41,11 +41,9 @@ export class APIConnecterService {
   }
 
   public getUserHabits(userId: string): Observable<UserHabit> {
-    var params = new HttpParams().append('param1', userId);
-    console.log(params);
-    return this.http.get<UserHabit>(`${environment.userAPIUrl}/UserHabits`, {
-      params,
-    });
+    var params = new HttpParams().append('id', userId);
+    console.log("params: " + params);
+    return this.http.get<UserHabit>(`${environment.userAPIUrl}/UserHabits/${userId}`);
   }
 
   public associateUserHabit(body: any) {
@@ -58,5 +56,14 @@ export class APIConnecterService {
 
   public createReward(reward: Reward): Observable<Reward> {
     return this.http.post<Reward>(`${environment.habitAPIUrl}/Rewards`, reward);
+  }
+  
+  associateHabitReward(habitId: number, rewardId: number){
+    return this.http.put(`${environment.habitAPIUrl}/Habits/${habitId}/${rewardId}`, null);
+  }
+
+  getHabit(habitId : number){
+    
+    return this.http.get(`${environment.habitAPIUrl}/Habits/${habitId}`);
   }
 }

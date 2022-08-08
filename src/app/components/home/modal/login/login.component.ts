@@ -21,6 +21,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear();
+    var date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    
+    if(day < 10){
+      let dayString = day.toString();
+      let monthString = month.toString();
+      let dateString = monthString+"0"+dayString;
+      day = parseInt(dateString);
+    }
+    console.log("month: " + month + " day: " + day + " type: " + typeof(month));
   }
   
   async loginUserHandler() {

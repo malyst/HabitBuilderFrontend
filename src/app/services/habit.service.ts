@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HabitService {
-  habitUrl = 'https://localhost:7267/api';
+  habitUrl = 'https://localhost:7286/api';
   userUrl = 'https://localhost:7048/api';
   habits : any = {};
 
@@ -26,7 +26,7 @@ export class HabitService {
   getHabit(habitId : number){
     const params = new HttpParams().append('id', habitId);
     console.log(params);
-    return this.http.get(this.habitUrl + '/habits', {params})
+    return this.http.get(`${this.habitUrl}/habits/${habitId}`)
   }
 
 }

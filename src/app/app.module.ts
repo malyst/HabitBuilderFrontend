@@ -24,6 +24,7 @@ import { BrowseHabitsComponent } from './components/browse-habits/browse-habits/
 import { HabitSubscribeComponent } from './components/habit-subscribe/habit-subscribe/habit-subscribe.component';
 import { ViewMyHabitsComponent } from './components/view-my-habits/view-my-habits/view-my-habits.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StartTaskComponent } from './components/start-task/start-task.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowseHabitsComponent,
     HabitSubscribeComponent,
     ViewMyHabitsComponent,
+    StartTaskComponent,
   ],
   imports: [
     BrowserModule,

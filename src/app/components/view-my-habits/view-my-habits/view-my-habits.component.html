@@ -1,9 +1,16 @@
 <section class="view-my-habits">
-    <button (click) = "clickHandler()">Get Habit Ids</button>
-
+    <table class="table">
+        <tr class="header-row">
+            <th>Habit Name</th>
+            <th>Habit Description</th>
+            <th>Duration</th>
+        </tr>
+        <tr class="table-data" *ngFor="let habit of userHabits">
+            <td>{{habit.name}}</td>
+            <td>{{habit.description}}</td>
+            <td>{{habit.duration}} seconds</td>
+        </tr>
+    </table>
+    <button (click) = "clickHandler()">Look At My Habits</button>
+    <button (click) = "calculateDuration()">Calculate Duration</button>
 </section>
-<div>
-    <ul>
-        <li *ngFor="let habit of userHabits">{{habit.name}}</li>
-    </ul>
-</div>

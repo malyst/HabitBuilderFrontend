@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
+import { JwtService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +10,14 @@ import { Router } from "@angular/router";
 export class NavbarComponent implements OnInit {
   @Output() formEventEmitter = new EventEmitter();
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private jwtService : JwtService) { }
+  user : any;
   ngOnInit(): void {
+    let token = localStorage.getItem("token");    
+    var decoded = this.jwtService.DecodeToken(token!);
+    console.log(decoded);
+    let decoded2 = JSON.stringify(decoded);   
+    this.user = JSON.parse(decoded2)["email"];
   }
 
   logoutHandler() {
@@ -21,7 +27,7 @@ export class NavbarComponent implements OnInit {
   }
 
   formHandler = () => {
-    this.formEventEmitter.emit(true);
+    this.router.navigateByUrl("/createhabit");
   }
 
 }

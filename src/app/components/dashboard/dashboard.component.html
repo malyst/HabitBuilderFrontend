@@ -1,7 +1,32 @@
-<app-navbar (formEventEmitter)="formIsVisible()"></app-navbar>
+<app-navbar class = "dashboard-navbar"></app-navbar>
+<div class="nav-dash-divide"></div>
+<section class="dashboard-wrapper">
+    <section class="component-wrapper">
+        <button (click)="showBrowseHabits()">Browse Habits</button>
+    </section>
+    
+    <section class="component-wrapper">
+        <button (click)="showCreateHabit()">Create Habit</button>
+        <section name="appCreateHabit" *ngIf="appCreatehabit">
+            <app-create-habit></app-create-habit>
+        </section>
+    </section>
+    
+    <section class="component-wrapper">
+        <button (click)="showViewMyHabits()">View My Habits</button>
+        <section name="viewMyHabits" *ngIf="viewMyHabits">
+            <app-view-my-habits></app-view-my-habits>
+        </section> 
+    </section>
 
-<app-browse-habits></app-browse-habits>
+    <section class="component-wrapper">
+        <button (click)="showRewards()">Rewards</button>
+        <section name="reward" *ngIf="reward">
+            <app-reward-popup></app-reward-popup>
+        </section> 
+    </section>
 
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Reward</button> -->
 
-<!-- <app-reward-popup></app-reward-popup> -->
+
+
+

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { APIConnecterService } from 'src/app/services/apiconnecter.service';
 import { HabitService } from 'src/app/services/habit.service';
 import { JwtService } from 'src/app/services/jwt.service';
@@ -18,7 +19,8 @@ export class HabitSubscribeComponent implements OnInit {
   constructor(
     private userService: APIConnecterService,
     private jwtService: JwtService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {}
@@ -45,5 +47,8 @@ export class HabitSubscribeComponent implements OnInit {
   }
   closeAlert() {
     this.alert = false;
+  }
+  returnToDash(){
+    this.router.navigateByUrl("/dashboard");
   }
 }
