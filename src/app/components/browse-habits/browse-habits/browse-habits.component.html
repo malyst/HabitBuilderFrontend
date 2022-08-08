@@ -1,14 +1,102 @@
-<section class="all-habit-display">
-    <table>
-        <tr>
-            <th>Habit Id</th>
-            <th>Habit Name</th>
-            <th>Habit Description</th>
-        </tr>
-        <tr *ngFor="let habit of habits">
-            <td>{{habit.habitId}}</td>
-            <td>{{habit.name}}</td>
-            <td>{{habit.description}}</td>
-        </tr>
-    </table> 
-</section>
+<div class="layeredBackground">
+  <div class="inspo-image">
+    <div class="cube" id="running"></div>
+    <div class="cube" id="healthyEating"></div>
+    <div class="cube" id="studying"></div>
+    <div class="cube" id="sleeping"></div>
+  </div>
+</div>
+<div class="card text-center">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <div class="alert alert-light" role="alert">
+      Welcome to the HabitBuilder Community. Below is a list of habits, enter a
+      habit to subscribe! Happy Growing
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-flower2"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 16a4 4 0 0 0 4-4 4 4 0 0 0 0-8 4 4 0 0 0-8 0 4 4 0 1 0 0 8 4 4 0 0 0 4 4zm3-12c0 .073-.01.155-.03.247-.544.241-1.091.638-1.598 1.084A2.987 2.987 0 0 0 8 5c-.494 0-.96.12-1.372.331-.507-.446-1.054-.843-1.597-1.084A1.117 1.117 0 0 1 5 4a3 3 0 0 1 6 0zm-.812 6.052A2.99 2.99 0 0 0 11 8a2.99 2.99 0 0 0-.812-2.052c.215-.18.432-.346.647-.487C11.34 5.131 11.732 5 12 5a3 3 0 1 1 0 6c-.268 0-.66-.13-1.165-.461a6.833 6.833 0 0 1-.647-.487zm-3.56.617a3.001 3.001 0 0 0 2.744 0c.507.446 1.054.842 1.598 1.084.02.091.03.174.03.247a3 3 0 1 1-6 0c0-.073.01-.155.03-.247.544-.242 1.091-.638 1.598-1.084zm-.816-4.721A2.99 2.99 0 0 0 5 8c0 .794.308 1.516.812 2.052a6.83 6.83 0 0 1-.647.487C4.66 10.869 4.268 11 4 11a3 3 0 0 1 0-6c.268 0 .66.13 1.165.461.215.141.432.306.647.487zM8 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+<body>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+
+      <app-habit-subscribe></app-habit-subscribe>
+
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Habits</h3>
+            </div>
+            <div class="table-responsive">
+              <table
+                class="table align-items-center table-flush , table table-hover"
+              >
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Id</th>
+
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="
+                      let habit of habitsList$
+                        | async
+                        | slice: (page - 1) * pageSize:page * pageSize
+                    "
+                  >
+                    <th scope="row">
+                      {{ habit.habitId }}
+                      <div class="media align-items-center">
+                        <a class="avatar rounded-circle mr-3">
+                          <img
+                            alt="Image placeholder"
+                            src="https://cdn-icons-png.flaticon.com/512/5981/5981495.png"
+                          />
+                        </a>
+                      </div>
+                    </th>
+
+                    <td>{{ habit.name }}</td>
+                    <td>{{ habit.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card-footer py-4">
+              <nav aria-label="...">
+                <ul class="pagination justify-content-end mb-0">
+                  <li class="page-item disabled"></li>
+                  <li class="page-item active">
+                    <ngb-pagination
+                      [(page)]="page"
+                      [pageSize]="pageSize"
+                      [collectionSize]="(habitsList$ | async)?.length || 0"
+                    ></ngb-pagination>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
